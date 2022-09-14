@@ -31,8 +31,23 @@ Note that not all supported distributions are listed here. See the current suppo
 
 ### Debian
 
-- Debian 10 (Buster)<p>`curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -`<p>`sudo apt-add-repository https://packages.microsoft.com/debian/10/prod`<p>`sudo apt-get update`
-
+- Debian 10 (Buster)
+ ```
+ curl -sSLO https://packages.microsoft.com/keys/microsoft.asc && \
+   echo 2cfd20a306b2fa5e25522d78f2ef50a1f429d35fd30bd983e2ebffc2b80944fa microsoft.asc | sha256sum --check - && \
+   sudo apt-key add microsoft.asc && rm microsoft.asc
+ sudo apt-add-repository https://packages.microsoft.com/debian/10/prod
+ sudo apt-get update
+ ```
+- Debian 11 (Bullseye)
+ ```
+ curl -sSLO https://packages.microsoft.com/keys/microsoft.asc && \
+   echo 2cfd20a306b2fa5e25522d78f2ef50a1f429d35fd30bd983e2ebffc2b80944fa microsoft.asc | sha256sum --check - && \
+   sudo apt-key add microsoft.asc && rm microsoft.asc
+ sudo apt-add-repository https://packages.microsoft.com/debian/10/prod
+ sudo apt-get update
+ ```
+ 
 ### Enterprise Linux (RHEL and variants)
 
 - Enterprise Linux 6 (EL6)<p>`sudo rpm -Uvh https://packages.microsoft.com/config/rhel/6/packages-microsoft-prod.rpm`
